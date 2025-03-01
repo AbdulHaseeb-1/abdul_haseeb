@@ -2,11 +2,9 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useTheme } from "../context/theme-provider";
 import clsx from "clsx";
 
-export default function CodeIcon() {
-  const { color } = useTheme();
+export default function HeroImage() {
   return (
     <div className="relative  w-64 h-64">
       {/* Animated rings */}
@@ -14,32 +12,33 @@ export default function CodeIcon() {
         <motion.div
           key={i}
           className={clsx(
-            "absolute w-64 h-64 rounded-full border-0 blur-md ",
-            `${color}`
+            "absolute w-64 h-64 rounded-full  border  ",
+            `border-amber-400`
           )}
           animate={{
-            scale: [1, 1.2],
-            opacity: [0.1, 0.5, 0],
+            scale: [1, 1.35],
+            opacity: [0.1, 1, 0],
           }}
           transition={{
-            duration: 2,
+            duration: 1,
             repeat: Infinity,
-            delay: i * 0.5,
+            delay: i * 0.6,
             ease: "easeInOut",
           }}
         />
       ))}
 
-      <Image
-        src="/download.png"
-        width={300}
-        height={300}
-        alt="Hero"
-        className="absolute   z-50 w-full h-full rounded-full object-cover"
-      />
+        <Image
+          src="/download.png"
+          width={300}
+          height={300}
+          alt="Hero"
+          className="absolute border-amber-400/40 border  z-50 w-full h-full rounded-full object-cover"
+        />
+   
       {/* Background glow effect */}
       <motion.div
-        className="absolute w-full h-full rounded-full bg-orange-500/30 blur-xl"
+        className="absolute w-full h-full rounded-full bg-amber-400 opacity-20 blur-xl "
         animate={{
           scale: [1, 1.2],
         }}
